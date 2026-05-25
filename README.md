@@ -1,73 +1,127 @@
-# React + TypeScript + Vite
+# Spiritual Impact
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive landing page for a spiritual organization dedicated to meaningful impact and community service. Built with React, TypeScript, and Vite for optimal performance.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Hero Section**: Eye-catching landing with call-to-action
+- **Mission & Values**: Showcase your organization's purpose and impact
+- **Campaigns**: Highlight current initiatives and programs
+- **Testimonials**: Share stories from community members
+- **Donation CTA**: Floating donation button for easy access
+- **Contact Form**: Collect inquiries with validation
+- **Responsive Design**: Beautiful on all devices
+- **Smooth Animations**: Framer Motion for fluid interactions
+- **Accessibility**: Built with modern best practices
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** - UI framework
+- **TypeScript** - Type safety
+- **Vite 7** - Lightning-fast build tool
+- **TanStack Router** - File-based routing
+- **TanStack Query** - Data fetching & caching
+- **Tailwind CSS 4** - Utility-first styling
+- **Framer Motion** - Smooth animations
+- **Radix UI** - Accessible component primitives
+- **React Hook Form** - Efficient form handling
+- **Zod** - Schema validation
+- **Recharts** - Data visualization
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Open [http://localhost:5174](http://localhost:5174) in your browser.
+
+### Build
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── components/        # Reusable UI components
+│   ├── Navbar.tsx
+│   ├── Hero.tsx
+│   ├── Mission.tsx
+│   ├── Impact.tsx
+│   ├── Campaigns.tsx
+│   ├── Testimonials.tsx
+│   ├── Contact.tsx
+│   └── ui/           # Radix UI components
+├── routes/           # File-based routes (TanStack Router)
+├── hooks/            # Custom React hooks
+├── lib/              # Utilities & helpers
+└── styles.css        # Global styles
+
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+## Customization
+
+### Contact Information
+Update contact details in `src/components/Contact.tsx`:
+```tsx
+const info = [
+  { icon: FiMail, label: "Email", value: "seva@charanvandan.org" },
+  { icon: FiPhone, label: "Phone", value: "+91 98765 43210" },
+  { icon: FiMapPin, label: "Address", value: "Charan Aashray, Rishikesh, India" },
+];
+```
+
+### Colors & Branding
+Tailwind configuration is in `tailwind.config.js`. Custom colors like `saffron`, `teal`, `maroon`, and `cream` are defined there.
+
+## Deployment
+
+The site is configured for deployment on Cloudflare Pages:
+- Uses `@cloudflare/vite-plugin` for optimized builds
+- `public/_redirects` handles URL routing
+- `src/server.ts` contains server-side request handling
+
+Deploy with:
+```bash
+npm run build
+# Then push to your hosting provider
+```
+
+## Performance
+
+- Optimized for Core Web Vitals
+- Image lazy-loading
+- Code splitting via Vite
+- PostCSS & Tailwind JIT for minimal CSS
+
+## License
+
+Spiritual Impact © 2024. All rights reserved.
