@@ -95,17 +95,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
+  const isServer = typeof window === 'undefined';
+
+  if (isServer) {
+    return (
+      <html lang="en">
+        <head>
+          <HeadContent />
+        </head>
+        <body>
+          {children}
+          <Scripts />
+        </body>
+      </html>
+    );
+  }
+
+  // On the client we must not render an extra <html>/<head>/<body>
+  // because the host document already provides them. Render only children.
+  return <>{children}</>;
 }
 
 function RootComponent() {
